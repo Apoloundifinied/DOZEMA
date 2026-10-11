@@ -27,6 +27,6 @@ create policy events_insert on events
 create index events_created_at_idx on events (created_at desc);
 create index events_type_created_at_idx on events (type, created_at desc);
 
-comment on table events is 'Analítico próprio Fase 0: page_view e cta_click (sem cookies)');
+comment on table events is 'Analítico próprio Fase 0: page_view e cta_click (sem cookies)';
 comment on column events.referrer is 'Referer da visita (origem do tráfego)';
 comment on column events.ua is 'User-Agent (p/ separar dispositivo; bots filtrados no relatório)';
