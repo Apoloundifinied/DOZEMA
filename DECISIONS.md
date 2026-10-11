@@ -3,7 +3,7 @@
 - **ADR-001 · 2026-10-11 · Produto:** troca de testers para a regra 12/14 do Google Play. Fluxo de dois lados simples, sem marketplace. Motivo: problema do próprio meio, fácil de construir, funil de conteúdo vende. Status: travada.
 - **ADR-002 · 2026-10-11 · Nome:** "Dozena" (provisório). Checar domínio, redes e INPI antes de fixar. Status: PENDENTE.
 - **ADR-003 · 2026-10-11 · Mecanismo:** **rodadas de 14 dias** como padrão (recomendação aceita). Créditos/fila contínua ficam como extra futuro. Motivo: todos precisam da mesma janela, o que resolve o abandono. Status: travada.
-- **ADR-004 · 2026-10-11 · Código aberto:** open source completo. Licença **recomendada: AGPL-3.0** (impede clones fechados como serviço); alternativa MIT. Status: PENDENTE confirmar licença.
+- **ADR-004 · 2026-10-11 · Código aberto:** open source completo. Licença **confirmada: AGPL-3.0-or-later** (impede clones fechados como serviço); alternativa avaliada: MIT. Arquivo `LICENSE` criado em 2026-10-13. Docs sob CC BY 4.0. Status: travada.
 - **ADR-005 · 2026-10-11 · Idioma:** UI bilíngue PT-BR + EN desde o início; docs principais em EN também. Status: travada.
 - **ADR-006 · 2026-10-11 · Quem entra:** qualquer pessoa; prioridade na fila a quem declara precisar da regra. Status: travada.
 - **ADR-007 · 2026-10-11 · Monetização:** decidir depois. MVP 100% grátis, sem pagamento no código. Status: travada.
