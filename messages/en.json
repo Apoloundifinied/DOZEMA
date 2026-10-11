@@ -1,0 +1,51 @@
+{
+  "landing": {
+    "hero": {
+      "tagline": "A dozen devs. Fourteen days. Everyone gets through.",
+      "subtitle": "We help solo devs meet Google Play's 12/14 rule by testing each other in synchronized rounds.",
+      "cta": "Join the waitlist"
+    },
+    "form": {
+      "emailLabel": "Your best email",
+      "emailPlaceholder": "you@example.com",
+      "submit": "I want in",
+      "submitting": "Submitting...",
+      "success": "You're on the list! We'll let you know when the first round opens.",
+      "error": "Something went wrong. Please try again.",
+      "invalidEmail": "Invalid email",
+      "turnstileError": "Complete the verification to continue"
+    },
+    "features": {
+      "title": "How it works",
+      "items": [
+        {
+          "title": "1. Register your app",
+          "desc": "Name, package, closed testing opt-in link, and Google Group link."
+        },
+        {
+          "title": "2. Join the queue",
+          "desc": "Priority for those who need the 12/14 rule."
+        },
+        {
+          "title": "3. 14-day round",
+          "desc": "Setup (48h) → Test (14 days) → Buffer (2 days). Check-in + feedback."
+        },
+        {
+          "title": "4. Everyone gets through",
+          "desc": "No one tests their own app. Reliability ranking included."
+        }
+      ]
+    },
+    "footer": {
+      "openSource": "Open source (AGPL-3.0)",
+      "privacy": "Privacy",
+      "contact": "Contact"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "retry": "Try again",
+    "close": "Close"
+  }
+}

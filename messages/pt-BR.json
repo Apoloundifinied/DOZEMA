@@ -1,0 +1,51 @@
+{
+  "landing": {
+    "hero": {
+      "tagline": "Uma dúzia de devs. Quatorze dias. Todo mundo passa.",
+      "subtitle": "Ajudamos devs solo a cumprir a regra 12/14 do Google Play testando uns aos outros em rodadas sincronizadas.",
+      "cta": "Entrar na lista de espera"
+    },
+    "form": {
+      "emailLabel": "Seu melhor e-mail",
+      "emailPlaceholder": "voce@exemplo.com",
+      "submit": "Quero participar",
+      "submitting": "Enviando...",
+      "success": "Você entrou na lista! Vamos te avisar quando a primeira rodada abrir.",
+      "error": "Algo deu errado. Tente novamente.",
+      "invalidEmail": "E-mail inválido",
+      "turnstileError": "Complete a verificação para continuar"
+    },
+    "features": {
+      "title": "Como funciona",
+      "items": [
+        {
+          "title": "1. Cadastre seu app",
+          "desc": "Nome, pacote, link de opt-in do teste fechado e link do Google Group."
+        },
+        {
+          "title": "2. Entre na fila",
+          "desc": "Prioridade para quem precisa cumprir a regra 12/14."
+        },
+        {
+          "title": "3. Rodada de 14 dias",
+          "desc": "Setup (48h) → Teste (14 dias) → Folga (2 dias). Check-in + feedback."
+        },
+        {
+          "title": "4. Todos passam",
+          "desc": "Ninguém testa o próprio app. Ranking de confiabilidade incluso."
+        }
+      ]
+    },
+    "footer": {
+      "openSource": "Código aberto (AGPL-3.0)",
+      "privacy": "Privacidade",
+      "contact": "Contato"
+    }
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro",
+    "retry": "Tentar novamente",
+    "close": "Fechar"
+  }
+}
