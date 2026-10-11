@@ -3,6 +3,7 @@
 import { waitlistSchema, type WaitlistInput } from "@/lib/validation/waitlist";
 import { verifyTurnstile } from "@/lib/turnstile";
 import { createSupabaseAdminClient } from "@/lib/supabase/server";
+import { sendWaitlistConfirmation } from "@/lib/notify/email";
 
 type WaitlistResult =
   | { success: true; message: string }
@@ -15,7 +16,7 @@ export async function joinWaitlist(input: WaitlistInput): Promise<WaitlistResult
     return { success: false, error: parsed.error.errors[0]?.message ?? "Dados inválidos." };
   }
 
-  const { email, turnstileToken } = parsed.data;
+  const { email, turnstileToken, locale } = parsed.data;
 
   // 2. Verificação anti-bot (Cloudflare Turnstile)
   const isHuman = await verifyTurnstile(turnstileToken);
@@ -37,6 +38,9 @@ export async function joinWaitlist(input: WaitlistInput): Promise<WaitlistResult
   } catch {
     return { success: false, error: "Serviço indisponível. Tente novamente mais tarde." };
   }
+
+  // 4. Confirmação por e-mail (não bloqueia: falha não reprova a inscrição)
+  await sendWaitlistConfirmation(email.toLowerCase().trim(), locale);
 
   return {
     success: true,

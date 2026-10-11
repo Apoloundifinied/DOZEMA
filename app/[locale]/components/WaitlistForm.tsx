@@ -110,6 +110,7 @@ export function WaitlistForm({ siteKey, onSuccess }: WaitlistFormProps) {
     const result = await joinWaitlist({
       email,
       turnstileToken: turnstileTokenRef.current || "dev-bypass",
+      locale: locale as "pt-BR" | "en",
     });
 
     if (result.success) {

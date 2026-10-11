@@ -33,4 +33,20 @@ describe("waitlistSchema", () => {
     });
     expect(result.success).toBe(false);
   });
+
+  it("aplica locale pt-BR por padrão e aceita en", () => {
+    const padrao = waitlistSchema.safeParse({ email: "dev@exemplo.com", turnstileToken: "t" });
+    const en = waitlistSchema.safeParse({ email: "dev@exemplo.com", turnstileToken: "t", locale: "en" });
+    expect(padrao.success && padrao.data.locale).toBe("pt-BR");
+    expect(en.success && en.data.locale).toBe("en");
+  });
+
+  it("rejeita locale desconhecido", () => {
+    const result = waitlistSchema.safeParse({
+      email: "dev@exemplo.com",
+      turnstileToken: "token",
+      locale: "fr",
+    });
+    expect(result.success).toBe(false);
+  });
 });
