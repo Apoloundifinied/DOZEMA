@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Hero } from "./components/Hero";
 import { Features } from "./components/Features";
 import { Footer } from "./components/Footer";
+import { Tracker } from "./components/Tracker";
 
 export async function generateMetadata({
   params,
@@ -29,6 +30,7 @@ export default async function Page({
 
   return (
     <div className="flex-1 flex flex-col">
+      <Tracker />
       <main className="flex-1 flex flex-col">
         <Hero siteKey={siteKey} />
         <Features />

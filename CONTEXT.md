@@ -70,5 +70,7 @@ supabase/migrations/ SQL
 ## 12. Estado atual (atualize ao fim de cada sessão)
 - Fase: **0 — validação** (lista de espera + piloto).
 - Código: **bootstrap + landing de waitlist bilíngue (pt-BR/en) concluídos** (ADR-014). Build e testes (vitest) verdes; i18n via next-intl com rota `[locale]`, proxy com roteamento de locale, server action com Zod + Turnstile, migration `0002_waitlist.sql` com RLS (só insert anon, sem read).
-- Próximo passo: configurar projeto Supabase, aplicar migrations, definir env vars na Vercel, publicar a landing e recrutar ≥ 26 devs em 10 dias.
-- Pendências: confirmar nome (checar domínio/INPI) · confirmar licença · e-mail de segurança · ativar Turnstile + Supabase em produção.
+- Publicado: https://dozema-nkdq.vercel.app/pt-BR (redirect /pt → /pt-BR ativo). Supabase em produção com `waitlist` (3 inscritos) + tabelas do MVP.
+- Analítico próprio (Fase 0): tabela `events` (page_view/cta_click, RLS insert-only, sem cookies) + `/api/track` + `Tracker` no cliente. Smoke test: `node scripts/smoke-track.mjs`.
+- Próximo passo: **aplicar migration `0003_events.sql` no SQL Editor do Supabase** e recrutar ≥ 26 devs em 10 dias (meta ADR-013: pivota se < 15).
+- Pendências: confirmar nome (checar domínio/INPI) · confirmar licença (criar `LICENSE`, recomendada AGPL-3.0) · e-mail de segurança no SECURITY.md · ativar Turnstile em produção (chaves comentadas no .env).

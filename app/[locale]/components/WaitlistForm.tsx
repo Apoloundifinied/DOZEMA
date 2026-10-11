@@ -1,8 +1,20 @@
 "use client";
 
 import { useState, useEffect, useRef, FormEvent } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { joinWaitlist } from "@/app/actions/waitlist";
+
+// Dispara evento do analítico próprio (Fase 0); falhas nunca bloqueiam o envio
+function track(type: "cta_click", locale: string) {
+  const payload = JSON.stringify({ type, locale, path: window.location.pathname });
+  const sent = navigator.sendBeacon(
+    "/api/track",
+    new Blob([payload], { type: "application/json" })
+  );
+  if (!sent) {
+    fetch("/api/track", { method: "POST", body: payload, headers: { "Content-Type": "application/json" }, keepalive: true }).catch(() => {});
+  }
+}
 
 interface WaitlistFormProps {
   siteKey: string;
@@ -31,6 +43,7 @@ const TURNSTILE_SRC = "https://challenges.cloudflare.com/turnstile/v0/api.js?ren
 
 export function WaitlistForm({ siteKey, onSuccess }: WaitlistFormProps) {
   const t = useTranslations("landing.form");
+  const locale = useLocale();
   const [email, setEmail] = useState("");
   const turnstileTokenRef = useRef("");
   const widgetIdRef = useRef<string | null>(null);
@@ -90,6 +103,7 @@ export function WaitlistForm({ siteKey, onSuccess }: WaitlistFormProps) {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    track("cta_click", locale);
     setStatus("submitting");
     setMessage("");
 
