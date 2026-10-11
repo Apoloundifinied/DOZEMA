@@ -73,5 +73,5 @@ supabase/migrations/ SQL
 - Publicado: https://dozema-nkdq.vercel.app/pt-BR (redirect /pt → /pt-BR ativo). Supabase em produção com `waitlist` (3 inscritos) + tabelas do MVP.
 - Analítico próprio (Fase 0): tabela `events` (page_view/cta_click, RLS insert-only, sem cookies) + `/api/track` + `Tracker` no cliente. Smoke test: `node scripts/smoke-track.mjs`.
 - Próximo passo: **aplicar migration `0003_events.sql` no SQL Editor do Supabase** e recrutar ≥ 26 devs em 10 dias (meta ADR-013: pivota se < 15).
-- Resolvido: licença **AGPL-3.0-or-later** (arquivo `LICENSE`, ADR-004 travada) e política de segurança via Security Advisories do GitHub.
-- Pendências: confirmar nome (checar domínio/INPI; atenção: repo/remoto dizem "DOZEMA", produto diz "Dozena") · ativar Turnstile em produção (chaves comentadas no .env).
+- Resolvido: licença **AGPL-3.0-or-later** (arquivo `LICENSE`, ADR-004 travada) · política de segurança via Security Advisories · e-mail de confirmação da waitlist via Resend REST puro (`onboarding@resend.dev`, ADR-015 — sem custo e sem domínio).
+- Pendências: confirmar nome (busca INPI; atenção: repo/remoto dizem "DOZEMA", produto diz "Dozena") · definir na Vercel: `RESEND_API_KEY`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` (widgets/keys gratuitos; código já pronto).
