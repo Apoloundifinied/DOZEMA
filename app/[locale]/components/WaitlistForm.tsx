@@ -6,6 +6,7 @@ import { joinWaitlist } from "@/app/actions/waitlist";
 
 interface WaitlistFormProps {
   siteKey: string;
+  onSuccess?: () => void;
 }
 
 declare global {
@@ -26,7 +27,9 @@ declare global {
   }
 }
 
-export function WaitlistForm({ siteKey }: WaitlistFormProps) {
+const TURNSTILE_SRC = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+
+export function WaitlistForm({ siteKey, onSuccess }: WaitlistFormProps) {
   const t = useTranslations("landing.form");
   const [email, setEmail] = useState("");
   const turnstileTokenRef = useRef("");
@@ -59,19 +62,25 @@ export function WaitlistForm({ siteKey }: WaitlistFormProps) {
       });
     };
 
+    let script: HTMLScriptElement | null = null;
     if (window.turnstile) {
       renderWidget();
-      return;
+    } else {
+      // reaproveita o script se ele já foi inserido (evita duplicar em StrictMode/HMR)
+      script = document.querySelector<HTMLScriptElement>("script[data-turnstile]");
+      if (!script) {
+        script = document.createElement("script");
+        script.src = TURNSTILE_SRC;
+        script.async = true;
+        script.defer = true;
+        script.dataset.turnstile = "1";
+        document.head.appendChild(script);
+      }
+      script.addEventListener("load", renderWidget);
     }
 
-    const script = document.createElement("script");
-    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-    script.async = true;
-    script.defer = true;
-    script.onload = renderWidget;
-    document.head.appendChild(script);
-
     return () => {
+      script?.removeEventListener("load", renderWidget);
       if (window.turnstile && widgetIdRef.current) {
         window.turnstile.remove(widgetIdRef.current);
         widgetIdRef.current = null;
@@ -98,6 +107,7 @@ export function WaitlistForm({ siteKey }: WaitlistFormProps) {
       if (window.turnstile && widgetIdRef.current) {
         window.turnstile.reset(widgetIdRef.current);
       }
+      onSuccess?.();
     } else {
       setStatus("error");
       setMessage(result.error ?? t("error"));
@@ -109,11 +119,12 @@ export function WaitlistForm({ siteKey }: WaitlistFormProps) {
   const waitingCaptcha = Boolean(siteKey) && !captchaReady;
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto space-y-4" noValidate>
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-zinc-700 dark:text-zinc-300 mb-1 text-left">
-          {t("emailLabel")}
-        </label>
+    <form onSubmit={handleSubmit} className="w-full space-y-3" noValidate>
+      <label htmlFor="email" className="block text-sm font-medium">
+        {t("emailLabel")}
+      </label>
+
+      <div className="flex flex-wrap gap-2.5">
         <input
           id="email"
           type="email"
@@ -123,34 +134,33 @@ export function WaitlistForm({ siteKey }: WaitlistFormProps) {
           onChange={(e) => setEmail(e.target.value)}
           disabled={submitting || done}
           required
-          className="w-full px-4 py-3 rounded-lg border border-zinc-300 dark:border-zinc-600 bg-white dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 placeholder-zinc-400 focus:ring-2 focus:ring-zinc-500 focus:border-transparent focus:outline-none disabled:opacity-60"
           aria-invalid={status === "error"}
+          className="min-h-[52px] flex-[1_1_230px] rounded-xl border-2 border-[#E6E2D6] bg-white px-4 text-[17px] text-[#14130F] placeholder-[#8A877A] transition focus:border-[#F5B301] focus:outline-none focus:ring-4 focus:ring-[#F5B301]/25 disabled:opacity-60 aria-[invalid=true]:border-red-500 dark:border-[#2B2A22] dark:bg-[#1A1914] dark:text-[#F4F1E8] dark:placeholder-[#6F6C60] motion-reduce:transition-none"
         />
+        <button
+          type="submit"
+          disabled={submitting || done || waitingCaptcha}
+          className="inline-flex min-h-[52px] grow items-center justify-center rounded-xl bg-[#F5B301] px-7 font-bold text-[#14130F] transition duration-200 hover:-translate-y-0.5 hover:bg-[#FFC933] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#14130F] active:translate-y-0 active:bg-[#D99B00] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:bg-[#F5B301] dark:focus-visible:outline-[#F4F1E8] sm:grow-0 motion-reduce:transition-none"
+        >
+          {submitting ? t("submitting") : done ? "✓" : t("submit")}
+        </button>
       </div>
 
-      {siteKey && <div ref={containerRef} className="flex justify-center min-h-[65px]" />}
+      {siteKey && <div ref={containerRef} className="min-h-[65px]" />}
 
-      <button
-        type="submit"
-        disabled={submitting || done || waitingCaptcha}
-        className="w-full py-3 px-4 rounded-lg font-medium transition-colors bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-700 dark:hover:bg-zinc-200 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:ring-offset-2 disabled:opacity-60 disabled:cursor-not-allowed"
-      >
-        {submitting ? t("submitting") : done ? "✓" : t("submit")}
-      </button>
-
-      {message && (
-        <p
-          className={`text-center text-sm ${
-            status === "success"
-              ? "text-green-600 dark:text-green-400"
-              : "text-red-600 dark:text-red-400"
-          }`}
-          role="status"
-          aria-live="polite"
-        >
-          {message}
-        </p>
-      )}
+      <div role="status" aria-live="polite">
+        {message && (
+          <p
+            className={`rounded-xl px-4 py-3 text-[15px] ${
+              status === "success"
+                ? "border-2 border-[#F5B301] bg-[#F5B301]/25 text-[#14130F] dark:text-[#F4F1E8]"
+                : "text-red-600 dark:text-red-400"
+            }`}
+          >
+            {message}
+          </p>
+        )}
+      </div>
     </form>
   );
 }

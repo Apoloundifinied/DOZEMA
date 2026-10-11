@@ -1,19 +1,23 @@
 import { type Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Schibsted_Grotesk, JetBrains_Mono } from "next/font/google";
 import "../globals.css";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 
-const geistSans = Geist({
+// Mantive os nomes das variáveis CSS (--font-geist-*) de propósito: assim o que o globals.css
+// já mapeia (font-sans, font-mono) passa a usar as fontes novas sem você editar mais nada.
+const sans = Schibsted_Grotesk({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
+const mono = JetBrains_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -41,8 +45,12 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-zinc-50 dark:bg-zinc-950">
+    <html
+      lang={locale}
+      data-scroll-behavior="smooth"
+      className={`${sans.variable} ${mono.variable} h-full scroll-smooth antialiased motion-reduce:scroll-auto`}
+    >
+      <body className="flex min-h-full flex-col bg-[#FBFAF7] font-[family-name:var(--font-geist-sans)] text-[#14130F] dark:bg-[#0F0E0B] dark:text-[#F4F1E8]">
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
