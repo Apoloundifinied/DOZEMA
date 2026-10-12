@@ -2,7 +2,7 @@
   "landing": {
     "hero": {
       "tagline": "A dozen devs. Fourteen days. Everyone gets through.",
-      "subtitle": "We help solo devs meet Google Play's 12/14 rule by testing each other in synchronized rounds.",
+      "subtitle": "We help solo devs with personal Google Play accounts (created after Nov 2023) meet the 12/14 rule by testing each other in synchronized rounds.",
       "note": "Dozena organizes the tester swap. Approval is always up to Google.",
       "cta": "Join the waitlist"
     },
@@ -68,6 +68,10 @@
         {
           "q": "What if someone drops out mid-round?",
           "a": "Rounds start with headroom (13–16 devs for a minimum of 12 testers per app) and every participant has a public reliability ranking — quitters lose priority in future rounds. Since everyone needs the same 14-day window, dropout rates are far lower than in loose swap groups."
+        },
+        {
+          "q": "Does this apply to organization (business) accounts?",
+          "a": "No need — organization accounts are exempt from the 12/14 rule. Dozena exists for personal developer accounts created on or after Nov 13, 2023, which can only publish to production after a closed test with 12 testers for 14 days."
         },
         {
           "q": "How is this different from Reddit/Telegram swap groups?",

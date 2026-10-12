@@ -2,7 +2,7 @@
   "landing": {
     "hero": {
       "tagline": "Uma dúzia de devs. Quatorze dias. Todo mundo passa.",
-      "subtitle": "Ajudamos devs solo a cumprir a regra 12/14 do Google Play testando uns aos outros em rodadas sincronizadas.",
+      "subtitle": "Ajudamos devs solo com conta pessoal do Google Play (criada após nov/2023) a cumprir a regra 12/14 testando uns aos outros em rodadas sincronizadas.",
       "note": "A Dozena organiza a troca de testers. A aprovação é sempre do Google.",
       "cta": "Entrar na lista de espera"
     },
@@ -68,6 +68,10 @@
         {
           "q": "E se alguém desistir no meio?",
           "a": "A rodada nasce com margem (13 a 16 devs para mínimo de 12 testers por app) e cada participante tem um ranking público de confiabilidade — quem abandona perde prioridade nas próximas rodadas. Como todos precisam da mesma janela de 14 dias, a taxa de abandono é muito menor que em grupos soltos."
+        },
+        {
+          "q": "Isso vale para conta de organização (CNPJ)?",
+          "a": "Não precisa — contas de organização são isentas da regra 12/14. A Dozena existe para contas pessoais criadas a partir de 13/11/2023, que só podem publicar em produção depois do teste fechado com 12 testers por 14 dias."
         },
         {
           "q": "Qual a diferença para grupos do Reddit/Telegram que trocam testes?",
