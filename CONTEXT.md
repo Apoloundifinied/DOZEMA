@@ -65,13 +65,14 @@ supabase/migrations/ SQL
 **Rodada:** grupo de devs que testam uns aos outros por 14 dias. **Owner:** dev com app na rodada. **Helper:** só testa (sem app). **Opt-in:** passo de entrar no teste pelo link do Google Play. **Check-in:** marcar que usou o app no dia. **Atribuição (assignment):** par tester → app.
 
 ## 11. Mapa de docs
-`AGENTS.md` · `DECISIONS.md` · `ROADMAP.md` · `docs/pt-BR/01…14` · `docs/en/` · `supabase/migrations/0001_init.sql`.
+`AGENTS.md` · `DECISIONS.md` · `ROADMAP.md` · `MONETIZACAO.md` · `docs/pt-BR/01…14` · `docs/en/` · `supabase/migrations/0001_init.sql`.
 
 ## 12. Estado atual (atualize ao fim de cada sessão)
 - Fase: **0 — validação (ciclo FECHADO em 2026-10-12)** — E2E da waitlist 100% validado em produção: Turnstile (widget Spin, action `waitlist` + hostname check) → insert → `cta_click` → e-mail Resend ✅. Landing + analítico próprio + Vercel Analytics (ADR-016) coletando.
 - Código: **bootstrap + landing de waitlist bilíngue (pt-BR/en) concluídos** (ADR-014). Build e testes (vitest) verdes; i18n via next-intl com rota `[locale]`, proxy com roteamento de locale, server action com Zod + Turnstile, migration `0002_waitlist.sql` com RLS (só insert anon, sem read).
 - Publicado: https://dozema-nkdq.vercel.app/pt-BR (redirect /pt → /pt-BR ativo). Supabase em produção com `waitlist` (3 inscritos) + tabelas do MVP.
 - Analítico próprio (Fase 0): tabela `events` (page_view/cta_click, RLS insert-only, sem cookies) + `/api/track` + `Tracker` no cliente. Smoke test: `node scripts/smoke-track.mjs`.
+- Monetização: análise documentada em `MONETIZACAO.md` (documento vivo; decisão só pós-piloto, ADR-007 mantido).
 - Próximo passo: **recrutar ≥ 26 devs reais em 10 dias** (meta ADR-013: pivota se < 15). Prompt de busca de canais pronto em `PROMPT-RECRUITING.md`.
 - Resolvido: licença **AGPL-3.0-or-later** (arquivo `LICENSE`, ADR-004 travada) · política de segurança via Security Advisories · e-mail de confirmação da waitlist via Resend REST puro (`onboarding@resend.dev`, ADR-015 — sem custo e sem domínio).
 - Pendências: confirmar nome (busca INPI; atenção: repo/remoto dizem "DOZEMA", produto diz "Dozena") · definir na Vercel: `RESEND_API_KEY`, `NEXT_PUBLIC_TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` (widgets/keys gratuitos; código já pronto).
