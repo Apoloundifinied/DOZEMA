@@ -3,6 +3,7 @@
     "hero": {
       "tagline": "Uma dúzia de devs. Quatorze dias. Todo mundo passa.",
       "subtitle": "Ajudamos devs solo a cumprir a regra 12/14 do Google Play testando uns aos outros em rodadas sincronizadas.",
+      "note": "A Dozena organiza a troca de testers. A aprovação é sempre do Google.",
       "cta": "Entrar na lista de espera"
     },
     "form": {
@@ -35,6 +36,15 @@
           "desc": "Ninguém testa o próprio app. Ranking de confiabilidade incluso."
         }
       ]
+    },
+    "commitment": {
+      "title": "O compromisso (leia antes de entrar)",
+      "items": [
+        "Setup de 48h: entrar no Google Group da rodada e fazer opt-in nos apps dos outros devs pelo Play.",
+        "14 dias: abrir os 12 apps, cada um em pelo menos 2 dias distintos, e marcar o check-in aqui.",
+        "3 feedbacks escritos (≥ 80 caracteres) durante a rodada. Ninguém testa o próprio app."
+      ],
+      "foot": "Dá ~15 min por dia. Quem some derruba a rodada de 12 pessoas — por isso deixamos claro antes."
     },
     "footer": {
       "openSource": "Código aberto (AGPL-3.0)",

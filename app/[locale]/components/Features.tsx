@@ -147,7 +147,9 @@ function Step({ index, item }: { index: number; item: { title: string; desc: str
 
 export function Features() {
   const t = useTranslations("landing.features");
+  const tc = useTranslations("landing.commitment");
   const items = t.raw("items") as { title: string; desc: string }[];
+  const commitment = tc.raw("items") as string[];
   const [lineRef, lineOn] = useReveal<HTMLDivElement>();
 
   return (
@@ -174,6 +176,20 @@ export function Features() {
             ))}
           </ol>
         </div>
+
+        {/* O compromisso: carga real antes da inscrição (decisão pós-feedback r/FlutterDev) */}
+        <aside className="mt-14 rounded-2xl border-2 border-[#F5B301]/60 bg-[#1D1C16] p-7 sm:p-9">
+          <h3 className="text-xl font-extrabold tracking-tight sm:text-2xl">{tc("title")}</h3>
+          <ul className="mt-5 grid gap-3 sm:grid-cols-3">
+            {commitment.map((c, i) => (
+              <li key={i} className="flex gap-3 text-[15px] leading-relaxed text-[#A8A596]">
+                <span aria-hidden="true" className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#F5B301]" />
+                {c}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 font-mono text-[13px] text-[#8A877A]">{tc("foot")}</p>
+        </aside>
       </div>
     </section>
   );

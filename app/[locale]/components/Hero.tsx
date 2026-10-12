@@ -193,6 +193,12 @@ export function Hero({ siteKey }: { siteKey: string }) {
           >
             {t("subtitle")}
           </p>
+          <p
+            className={`max-w-[500px] font-mono text-[13px] text-[#8A877A] dark:text-[#6F6C60] ${rise}`}
+            style={{ animationDelay: "800ms" }}
+          >
+            ⓘ {t("note")}
+          </p>
           <div className={`w-full max-w-[520px] ${rise}`} style={{ animationDelay: "900ms" }}>
             <WaitlistForm siteKey={siteKey} onSuccess={() => setJoined(true)} /> {/* NOVO */}
           </div>

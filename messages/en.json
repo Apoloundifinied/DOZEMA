@@ -3,6 +3,7 @@
     "hero": {
       "tagline": "A dozen devs. Fourteen days. Everyone gets through.",
       "subtitle": "We help solo devs meet Google Play's 12/14 rule by testing each other in synchronized rounds.",
+      "note": "Dozena organizes the tester swap. Approval is always up to Google.",
       "cta": "Join the waitlist"
     },
     "form": {
@@ -35,6 +36,15 @@
           "desc": "No one tests their own app. Reliability ranking included."
         }
       ]
+    },
+    "commitment": {
+      "title": "The commitment (read before joining)",
+      "items": [
+        "48h setup: join the round's Google Group and opt in to every other dev's app on the Play Store.",
+        "14 days: open all 12 apps, each on at least 2 distinct days, and check in here.",
+        "3 written feedbacks (≥ 80 characters) during the round. No one tests their own app."
+      ],
+      "foot": "~15 min per day. No-shows sink the round for 12 people — that's why we say it upfront."
     },
     "footer": {
       "openSource": "Open source (AGPL-3.0)",
