@@ -12,9 +12,19 @@
 | Grupos gratuitos (ex.: comunidade com 20 mil+ devs) | Dev entra no grupo e troca testes por conta própria | Sem rodada sincronizada, abandono alto, sem prova de uso |
 | Serviços pagos de testers | Pagam por ~25 testers durante os 14 dias | Custo, qualidade variável, risco de teste "artificial" |
 | Threads em fóruns (Reddit, Indie Hackers) | Troca manual | Manual e dispersa |
+| **Testers Community** (testerscommunity.com) — referência detalhada 2026-10-12, vinda de comentário no r/FlutterDev | Pago: R$75–125/app, rede de "testers profissionais" em 6h, "100% production access guarantee" (que é só reembolso — o Google não dá garantia a ninguém). Tier grátis existe, mas exige acumular testes pra ganhar testers | Fechado; testers anônimos pagos (padrão que a regra 12/14 tenta frustrar); promessa inflada; desincronizado |
 
 ## Diferenciais da Dozena
 Rodadas sincronizadas (todos precisam da mesma janela) · prova de uso (check-ins + feedback) · reputação e ranking · bilíngue · open source · gratuito.
+
+### Diferenciais vs. Testers Community (especificamente)
+| | Testers Community | Dozena |
+|---|---|---|
+| Preço | R$75–125/app; "grátis" só com trabalho acumulado | Grátis no MVP |
+| Quem testa | Rede anônima de testers pagos | Devs com o mesmo problema, na mesma janela |
+| Promessa | "100% garantia" (na prática: reembolso) | Nenhuma promessa de aprovação; só organiza a troca |
+| Código | Fechado | AGPL-3.0, auditável |
+| Provável vida útil com quebra da regra | Acaba | Pivotável (ver Alternativas) |
 
 ## Riscos
 | Risco | Impacto | Mitigação |
