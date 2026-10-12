@@ -5,6 +5,7 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
+import { Analytics } from "@vercel/analytics/next";
 
 // Mantive os nomes das variáveis CSS (--font-geist-*) de propósito: assim o que o globals.css
 // já mapeia (font-sans, font-mono) passa a usar as fontes novas sem você editar mais nada.
@@ -54,6 +55,8 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
+        {/* Analytics da Vercel: page views/visitantes no dashboard (ADR-016). Privacy-friendly, sem cookies. */}
+        <Analytics />
       </body>
     </html>
   );
