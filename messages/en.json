@@ -46,6 +46,35 @@
       ],
       "foot": "~15 min per day. No-shows sink the round for 12 people — that's why we say it upfront."
     },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "Is this a paid service?",
+          "a": "No. Dozena is open source (AGPL-3.0) and free during the MVP. You pay nothing: you test other devs' apps in your round and they test yours — it's a swap, not a service."
+        },
+        {
+          "q": "Does this guarantee Google Play approval?",
+          "a": "No — and nobody can (services claiming a '100% guarantee' are offering a refund, not approval). Dozena organizes the tester swap so you meet the 12 testers / 14 days rule; the final decision is always Google's."
+        },
+        {
+          "q": "Who tests my app?",
+          "a": "The other developers in your round — at least 12. All of them are devs with their own app in the same situation, starting in the same window. Nobody tests their own app."
+        },
+        {
+          "q": "What exactly do I have to do?",
+          "a": "4 things: (1) register your app with your closed-testing opt-in link and your Google Group; (2) during the 48h setup, join the group and opt in to everyone else's apps; (3) for 14 days, open the 12 apps on at least 2 distinct days and check in; (4) write short feedback (≥ 80 characters) on 3 apps. About 15 min per day."
+        },
+        {
+          "q": "What if someone drops out mid-round?",
+          "a": "Rounds start with headroom (13–16 devs for a minimum of 12 testers per app) and every participant has a public reliability ranking — quitters lose priority in future rounds. Since everyone needs the same 14-day window, dropout rates are far lower than in loose swap groups."
+        },
+        {
+          "q": "How is this different from Reddit/Telegram swap groups?",
+          "a": "Those are manual and scattered: everyone starts on a different day, nobody tracks anything, and most people quit by day 3. Here the round is synchronized (everyone starts together), check-ins prove real usage on distinct days, and reputation is public."
+        }
+      ]
+    },
     "footer": {
       "openSource": "Open source (AGPL-3.0)",
       "privacy": "Privacy",

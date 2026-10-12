@@ -46,6 +46,35 @@
       ],
       "foot": "Dá ~15 min por dia. Quem some derruba a rodada de 12 pessoas — por isso deixamos claro antes."
     },
+    "faq": {
+      "title": "Perguntas frequentes",
+      "items": [
+        {
+          "q": "Isso é um serviço pago?",
+          "a": "Não. A Dozena é open source (AGPL-3.0) e gratuita no MVP. Você não paga nada: testa os apps dos outros devs da sua rodada e eles testam o seu — é uma troca, não um serviço."
+        },
+        {
+          "q": "Isso garante a aprovação no Google Play?",
+          "a": "Não — e ninguém pode garantir isso (serviços que dizem '100% garantido' estão oferecendo reembolso, não aprovação). A Dozena organiza a troca de testers para cumprir a regra dos 12 testers por 14 dias; a decisão final é sempre do Google."
+        },
+        {
+          "q": "Quem testa o meu app?",
+          "a": "Os outros desenvolvedores da sua rodada — pelo menos 12. Todos são devs com app próprio na mesma situação, começando na mesma janela. Ninguém testa o próprio app."
+        },
+        {
+          "q": "O que exatamente eu preciso fazer?",
+          "a": "4 coisas: (1) cadastrar seu app com o link de opt-in do teste fechado e seu Google Group; (2) nas 48h de setup, entrar no grupo e fazer opt-in nos apps dos outros; (3) durante 14 dias, abrir os 12 apps em pelo menos 2 dias distintos e marcar o check-in; (4) escrever feedback curto (≥ 80 caracteres) em 3 apps. Cerca de 15 min por dia."
+        },
+        {
+          "q": "E se alguém desistir no meio?",
+          "a": "A rodada nasce com margem (13 a 16 devs para mínimo de 12 testers por app) e cada participante tem um ranking público de confiabilidade — quem abandona perde prioridade nas próximas rodadas. Como todos precisam da mesma janela de 14 dias, a taxa de abandono é muito menor que em grupos soltos."
+        },
+        {
+          "q": "Qual a diferença para grupos do Reddit/Telegram que trocam testes?",
+          "a": "Lá a troca é manual e dispersa: cada um começa num dia, ninguém acompanha, e a maioria para no dia 3. Aqui a rodada é sincronizada (todos começam juntos), tem check-in com prova de uso em dias distintos e reputação visível."
+        }
+      ]
+    },
     "footer": {
       "openSource": "Código aberto (AGPL-3.0)",
       "privacy": "Privacidade",
