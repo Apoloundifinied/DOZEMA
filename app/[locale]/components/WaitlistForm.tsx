@@ -28,6 +28,7 @@ declare global {
         container: string | HTMLElement,
         options: {
           sitekey: string;
+          action?: string;
           callback: (token: string) => void;
           "expired-callback"?: () => void;
           "error-callback"?: () => void;
@@ -60,6 +61,7 @@ export function WaitlistForm({ siteKey, onSuccess }: WaitlistFormProps) {
       if (!window.turnstile || !containerRef.current || widgetIdRef.current) return;
       widgetIdRef.current = window.turnstile.render(containerRef.current, {
         sitekey: siteKey,
+        action: "waitlist",
         callback: (token) => {
           turnstileTokenRef.current = token;
           setCaptchaReady(true);

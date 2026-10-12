@@ -19,7 +19,7 @@ export async function joinWaitlist(input: WaitlistInput): Promise<WaitlistResult
   const { email, turnstileToken, locale } = parsed.data;
 
   // 2. Verificação anti-bot (Cloudflare Turnstile)
-  const isHuman = await verifyTurnstile(turnstileToken);
+  const isHuman = await verifyTurnstile(turnstileToken, { action: "waitlist" });
   if (!isHuman) {
     return { success: false, error: "Falha na verificação. Tente novamente." };
   }
